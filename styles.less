@@ -23,6 +23,10 @@ li {
     color: var(--dark-gray);
     padding: 0 24px;
 
+    &:first-child::after {
+        width: 0;
+    }
+
     &:before {
         content: attr(data-step);
         position: absolute;
@@ -35,6 +39,7 @@ li {
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 2;
     }
 
     &:after {
@@ -43,7 +48,19 @@ li {
         height: 2px;
         width: 100%;
         top: -40px;
-        background-color: red;
-        left: 50%;
+        background-color: var(--light-gray);
+        left: -50%;
+    }
+
+    &.active {
+        color: var(--primary);
+
+        &:before {
+            background-color: var(--primary);
+            color: #FFF;
+        }
+        &:after {
+            background-color: var(--primary);
+        }
     }
 }
